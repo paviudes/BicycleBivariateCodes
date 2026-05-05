@@ -1,0 +1,51 @@
+# =========================
+# Julia-specific ignores
+# =========================
+
+# Compiled cache
+*.ji
+
+# Package environments
+Manifest.toml
+
+# Build artifacts
+deps/build.log
+deps/deps.jl
+
+# Documentation build
+docs/build/
+
+# Coverage files
+*.cov
+*.lcov
+
+# Temporary / editor files
+*~
+.swp
+.DS_Store
+
+# =========================
+# Data directory rules
+# =========================
+
+# Ignore everything in data/
+data/
+
+# Re-include necessary subdirectories step-by-step
+!data/test/
+!data/test/test_Steane/
+!data/test/test_Hamming_hgp/
+
+# Re-include only the required files
+
+# Steane test files
+!data/test/test_Steane/HX.txt
+!data/test/test_Steane/HZ.txt
+!data/test/test_Steane/LX.txt
+!data/test/test_Steane/LZ.txt
+
+# Hamming HGP test files
+!data/test/test_Hamming_hgp/HX.txt
+!data/test/test_Hamming_hgp/HZ.txt
+!data/test/test_Hamming_hgp/LX.txt
+!data/test/test_Hamming_hgp/LZ.txt
