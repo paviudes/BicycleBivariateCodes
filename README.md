@@ -43,6 +43,7 @@ All codes in Table 6 of the [supplementary material](https://static-content.spri
    ```
 3. Call the appropriate code-generation function, supplying an output directory via `prefix`:
    ```julia
+   julia> include("generate_bb_codes.jl")
    julia> bb_code_72(; prefix="./../data/72q_BB_code")
    ```
    Replace `72` with any `n` value from Table 3 (e.g. `bb_code_90`, `bb_code_108`, `bb_code_144`, `bb_code_288`, `bb_code_360`, `bb_code_756`).
