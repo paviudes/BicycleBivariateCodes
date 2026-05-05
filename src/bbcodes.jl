@@ -102,6 +102,12 @@ function gen_bb_code(
     - d inferred from Table 3 of https://arxiv.org/abs/2308.07915.
 
     We will return the parity-check matrices H_X and H_Z, and the [[n, k, d]] parameters of the code
+
+    - Arguments:
+    - l, m      : Construction parameters
+    - A_monomials, B_monomials : Lists of monomials defining the polynomials A and B, where each monomial is represented as a tuple (a, b) corresponding to the term x^a y^b.
+    - distance  : Optional distance parameter, since computing the distance is expensive. If not provided, it will be set to -1.
+
     """
     A = _polynomial_matrix(l, m, A_monomials)
     B = _polynomial_matrix(l, m, B_monomials)
@@ -119,7 +125,7 @@ function gen_bb_code(
     code = BBCode(HX, HZ, logical_X_operators, logical_Z_operators, n_qubits, k_logical, distance, l, m, A_monomials, B_monomials)
     
     # Verify the commutation relations of the logical operators with the stabilizers and with each other.
-    verify_canonical_commutations(HX, HZ)
+    verify_canonical_commutations(HX, HZ, logical_X_operators, logical_Z_operators)
     
     return code
 end
